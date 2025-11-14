@@ -10,16 +10,17 @@
 </head>
 
 <body>
+    
     <div id="love-container"></div>
 
     <div class="greetings">
-    <!-- silahkan menambah kata sesuai keinginan dengan <span>text...</span -->
         <span>A</span>
         <span>L</span>
         <span>L</span>
         <span>O</span>
         <span>W</span>
     </div>
+
     <div class="description">
         <span>I LOVE YOU ROSALINDA ALLAGAN</span><br>
         <span>Jangan Insecure dan minder ya sayang</span>
@@ -29,15 +30,24 @@
         <button>
             <a href="flower.html">TAP DISINI SAYANG</a>
         </button>
-        
     </div>
+
+    <!-- Iframe musik -->
+    <iframe src="music-player.html" allow="autoplay" style="
+        width:0;
+        height:0;
+        border:0;
+        opacity:0;
+        position:absolute;
+    "></iframe>
+
 <script>
 function createHeart() {
     const container = document.getElementById("love-container");
     const heart = document.createElement("div");
 
     heart.classList.add("love");
-    heart.innerHTML = "🤍"; // karakter love putih
+    heart.innerHTML = "🤍";
 
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.fontSize = (25 + Math.random() * 30) + "px";
@@ -45,15 +55,24 @@ function createHeart() {
 
     container.appendChild(heart);
 
-    setTimeout(() => {
-        heart.remove();
-    }, 9000);
+    setTimeout(() => heart.remove(), 9000);
 }
 
-// banyak love muncul (120ms)
 setInterval(createHeart, 120);
-</script>
 
+// kontrol musik
+function playMusic() {
+    const frame = document.querySelector("iframe");
+    frame.contentWindow.document.getElementById("bgMusic").play();
+}
+
+function stopMusic() {
+    const frame = document.querySelector("iframe");
+    const music = frame.contentWindow.document.getElementById("bgMusic");
+    music.pause();
+    music.currentTime = 0;
+}
+</script>
 
 </body>
 </html>

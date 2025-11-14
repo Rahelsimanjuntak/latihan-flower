@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body style="background: transparent;">
+
+<audio id="bgMusic" autoplay loop>
+    <source src="music/kasih-putih.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Autoplay fix (browser butuh interaction)
+document.body.addEventListener("click", function () {
+    document.getElementById("bgMusic").play();
+});
+</script>
+
+</body>
+</html>

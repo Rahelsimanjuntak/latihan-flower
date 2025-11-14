@@ -307,6 +307,30 @@
         </div>
       </div>
     </div>
+    <iframe src="music-player.html" allow="autoplay" style="
+    width:0;
+    height:0;
+    border:0;
+    position:absolute;
+    opacity:0;
+"></iframe>
+
+
+     <script>
+    // tombol play/stop musik jika mau dipakai
+    function playMusic() {
+        const frame = document.querySelector("iframe");
+        frame.contentWindow.document.getElementById("bgMusic").play();
+    }
+
+    function stopMusic() {
+        const frame = document.querySelector("iframe");
+        const music = frame.contentWindow.document.getElementById("bgMusic");
+        music.pause();
+        music.currentTime = 0;
+    }
+    </script>
+
     <script src="main.js"></script>
   </body>
 </html>
